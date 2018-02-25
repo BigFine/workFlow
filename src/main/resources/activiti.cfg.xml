@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 流程引擎配置的bean -->
+	<bean id="processEngineConfiguration"
+		class="org.activiti.engine.impl.cfg.StandaloneProcessEngineConfiguration">
+		<property name="asyncExecutorActivate" value="true" />
+
+		<!-- <property name="createDiagramOnDeploy" value="false" /> -->
+
+		<!-- 没有表创建表 -->
+		<property name="databaseSchemaUpdate" value="true" />
+		<!-- 是否激活Activiti的任务调度 -->
+		<property name="jobExecutorActivate" value="false" />
+		<!-- 是否开启工作的数据日志 -->
+		<!-- <property name="enableDatabaseEventLogging" value="true" /> -->
+		<!--<property name="history" value="full"/> -->
+		<property name="processDefinitionCacheLimit" value="10" />
+		<!-- mail -->
+		<!-- <property name="mailServerHost" value="localhost"/> <property name="mailServerUsername" 
+			value="kafeitu"/> <property name="mailServerPassword" value="000000"/> <property 
+			name="mailServerPort" value="2025"/> -->
+		<!-- UUID作为主键生成策略 -->
+		<!-- <property name="idGenerator" ref="uuidGenerator" /> -->
+
+		<!-- 缓存支持 <property name="processDefinitionCache"> <bean class="me.kafeitu.demo.activiti.util.cache.DistributedCache" 
+			/> </property> -->
+
+		<!-- 自动部署 -->
+		<!-- <property name="deploymentResources"> <list> <value>classpath*:/deployments/*</value> 
+			</list> </property> -->
+
+		<!-- 自定义表单字段类型 -->
+		<!-- <property name="customFormTypes"> <list> <bean class="me.kafeitu.demo.activiti.activiti.form.UsersFormType"/> 
+			</list> </property> -->
+	</bean>
+</beans>
